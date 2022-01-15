@@ -1,0 +1,33 @@
+{
+    "name": "matador-ai",
+    "version": "0.0.1",
+    "description": "Matador.ai Official Javascript SDK",
+    "main": "dist/src/index.js",
+    "keywords": [
+        "matador",
+        "matador-ai",
+        "matador.ai",
+        "matador.ai.js",
+        "matador.ai.sdk",
+        "matadorjs",
+        "matadorsdk",
+        "automotive",
+        "cars",
+        "automotive-ai",
+        "automotive-ai.js"
+    ],
+    "author": "",
+    "license": "MIT",
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.16.8",
+        "@babel/preset-typescript": "^7.16.7",
+        "@types/jest": "^27.4.0",
+        "jest": "^27.4.7"
+    },
+    "dependencies": {
+        "axios": "^0.24.0"
+    }
+}
