@@ -1,3 +1,3 @@
-export default function () {
-    return "Hello Matador SDK";
-}
+import MatadorClientTS from "./MatadorClient";
+
+export const MatadorClient = MatadorClientTS;

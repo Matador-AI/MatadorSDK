@@ -1,10 +1,8 @@
 import MatadorClient from "../MatadorClient";
 
 describe("Init and use client", () => {
-  test("matador should return a new instance of Client", () => {
-
-    const client = new MatadorClient();
-    expect(client).toBeInstanceOf(MatadorClient);
-    
-  });
+    const client = new MatadorClient("test-api-key");
+    test("it initializes MatadorClient instance", () => {
+        expect(client).toBeInstanceOf(MatadorClient);
+    });
 });
