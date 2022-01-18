@@ -1,8 +1,8 @@
 {
-    "name": "matador-ai",
-    "version": "0.0.1",
+    "name": "matadorai",
+    "version": "0.1.1",
     "description": "Matador.ai Official Javascript SDK",
-    "main": "dist/src/index.js",
+    "main": "dist/index.js",
     "keywords": [
         "matador",
         "matador-ai",
@@ -19,12 +19,16 @@
     "author": "",
     "license": "MIT",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "lint": "eslint . --ext .ts"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.16.8",
         "@babel/preset-typescript": "^7.16.7",
         "@types/jest": "^27.4.0",
+        "@typescript-eslint/eslint-plugin": "^5.9.1",
+        "@typescript-eslint/parser": "^5.9.1",
+        "eslint": "^8.7.0",
         "jest": "^27.4.7"
     },
     "dependencies": {

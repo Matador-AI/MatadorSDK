@@ -1,10 +1,11 @@
 import automations from "./automations/automations";
-import * as ResourcesTypes from "./types/resources";
+import broadcasts from "./broadcasts/broadcasts";
+import appointments from "./appointments/appointments";
 import * as ClientTypes from "./types/client";
 
 export default class MatadorClient {
 
-    public version = "0.0.1";
+    public version = "0.1.1";
     protected config: ClientTypes.MatadorClientConfig = {
         apiKey: "",
     };
@@ -13,6 +14,9 @@ export default class MatadorClient {
         this.config.apiKey = apiKey;
     }
 
-    public automations: ResourcesTypes.Automations = automations(this.config);
+    public automations = automations(this.config);
+    public broadcasts = broadcasts(this.config);
+    public appointments = appointments(this.config);
+
 
 }

@@ -6,12 +6,20 @@ import endpoints from "../http/endpoints";
 
 export default function (config: ClientTypes.MatadorClientConfig): ResourcesTypes.Automations {
     return {
-        getAll: async (locationId: string): Promise<Object> => {
+        getAll: async (locationId) => {
             return HttpClient(endpoints.automations.getAll, {location_id: locationId}, config.apiKey);
         },
-
-        update: (locationId: string): Promise<Object> => {
-            return new Promise((resolve, reject) => {});
+        
+        update: async (loactionId, automationId, params) => {
+            return HttpClient(
+                endpoints.automations.update, 
+                {
+                    location_id: loactionId, 
+                    automation_id: automationId, 
+                    ...params
+                },
+                config.apiKey
+            );
         }
     }
     
