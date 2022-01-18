@@ -10,7 +10,7 @@ export interface HttpResource {
     [key: string]: HTTPEndpoint;
 }
 
-interface User {
+interface BroadcastCustomer {
     firstName: string,
     lastName: string,
     phone: string,
@@ -42,7 +42,7 @@ export interface Broadcasts {
         message: string,
         action_time: number,
         time_offset: number,
-        users: User[],
+        users: BroadcastCustomer[],
         send_consent: boolean,
         send_review_invite: boolean
     }): Promise<any>;
