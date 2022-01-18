@@ -1,8 +1,9 @@
 {
     "name": "matadorai",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Matador.ai Official Javascript SDK",
     "main": "dist/index.js",
+    "homepage": "https://matadordev.notion.site/Matador-Node-js-SDK-226bb6a4a7aa4c82b5cc3f74ceb4833c",
     "keywords": [
         "matador",
         "matador-ai",
