@@ -1,5 +1,5 @@
 import axios from "axios";
-import {HTTPEndpoint} from "../types/resources";
+import {HTTPEndpoint} from "./types";
 
 import errorParser from "./errorParser";
 

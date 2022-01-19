@@ -1,18 +1,32 @@
-import * as ResourcesTypes from "../types/resources";
-import * as ClientTypes from "../types/client";
+import {AutomationResource} from "./types";
+import * as ClientTypes from "../types/clientTypes";
 
 import HttpClient from "../http/client";
-import endpoints from "../http/endpoints";
+import * as hosts from "../http/hosts";
 
-export default function (config: ClientTypes.MatadorClientConfig): ResourcesTypes.Automations {
+export default function (config: ClientTypes.MatadorClientConfig): AutomationResource {
     return {
         getAll: async (locationId) => {
-            return HttpClient(endpoints.automations.getAll, {location_id: locationId}, config.apiKey);
+            return HttpClient(
+                {
+                    method: "GET",
+                    host: hosts.automationsHost,
+                    path: "/public/automations/get-all",
+                },
+                {
+                    location_id: locationId
+                }, 
+                config.apiKey
+            );
         },
         
         update: async (loactionId, automationId, params) => {
             return HttpClient(
-                endpoints.automations.update, 
+                {
+                    method: "PUT",
+                    host: hosts.automationsHost,
+                    path: "/public/automations/update",
+                }, 
                 {
                     location_id: loactionId, 
                     automation_id: automationId, 

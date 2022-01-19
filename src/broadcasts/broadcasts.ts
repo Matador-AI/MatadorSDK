@@ -1,17 +1,24 @@
-import * as ResourcesTypes from "../types/resources";
-import * as ClientTypes from "../types/client";
+import {BroadcastResource} from "./types";
+import * as ClientTypes from "../types/clientTypes";
 
 import HttpClient from "../http/client";
-import endpoints from "../http/endpoints";
+import * as hosts from "../http/hosts";
 
-export default function (config: ClientTypes.MatadorClientConfig): ResourcesTypes.Broadcasts {
+export default function (config: ClientTypes.MatadorClientConfig): BroadcastResource {
     return {
         createCampaign: async (locationId, params) => {
-            return HttpClient(endpoints.broadcasts.createCampaign, {
-                _location_id: locationId,
-                ...params
-            }, 
-            config.apiKey);
+            return HttpClient(
+                {
+                    method: "POST",
+                    host: hosts.engagementHost,
+                    path: "/create-broadcast-campaign",
+                }, 
+                {
+                    _location_id: locationId,
+                    ...params
+                }, 
+                config.apiKey
+            );
         },
     }
     
