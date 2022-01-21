@@ -1,4 +1,5 @@
 import MatadorClientTS from "./MatadorClient";
+import findDealerTS from "./findDealer";
 
-export default MatadorClientTS;
 export const MatadorClient = MatadorClientTS;
+export const findDealer = findDealerTS;

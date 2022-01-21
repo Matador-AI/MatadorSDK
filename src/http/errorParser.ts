@@ -1,9 +1,24 @@
 export default (err: any) =>  {
-    // console.log("MatadorClient HTTP request failed, code: ", err.response.statusText+ ", response: ", err.response.data)
-    return {
-        status: err.response.status,
-        statusText: err.response.statusText,
-        config: err.response.config,
-        data: err.response.data
+    if(!err?.isAxiosError) {
+        return {
+            errorType: "UNKNOWN",
+            error: err
+        };
+    }
+    else if(err?.isAxiosError && !err.response) {
+        return {
+            errorType: err.code,
+            error: err
+        };
+    }
+   
+    else return {
+        errorType: "HTTP",
+        error: {
+            status: err.response.status,
+            statusText: err.response.statusText,
+            config: err.response.config,
+            data: err.response.data
+        }
     };
-}
+};
