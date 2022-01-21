@@ -3,11 +3,12 @@ import * as ClientTypes from "../types/clientTypes";
 
 import HttpClient from "../http/client";
 import * as hosts from "../http/hosts";
+import AppointmentObject from "../objects/Appointment";
 
 export default function (config: ClientTypes.MatadorClientConfig): AppointmentResource {
     return {
         createCalendarInvitation: async (locationId, params) => {
-            return HttpClient(
+            const response = await HttpClient(
                 {
                     method: "POST",
                     host: hosts.engagementHost,
@@ -16,9 +17,14 @@ export default function (config: ClientTypes.MatadorClientConfig): AppointmentRe
                 params, 
                 config.apiKey
             );
+
+            return AppointmentObject({
+                ...response.customer.lastAppointment,
+                customerId: response.customer._id
+            });
         },
         updateCalendarInvitation: async (locationId, appointmentId, params) => {
-            return HttpClient(
+            const response = await HttpClient(
                 {
                     method: "PATCH",
                     host: hosts.engagementHost,
@@ -31,9 +37,21 @@ export default function (config: ClientTypes.MatadorClientConfig): AppointmentRe
                 }, 
                 config.apiKey
             );
+
+            let appointment: any = {
+            };
+
+            response.appointments.map((one: any) => {
+                if(one._id == appointmentId) appointment = AppointmentObject(one);
+            });
+
+            delete appointment.customerId;
+
+            return appointment;
+
         },
         deleteCalendarInvitation: async (locationId, appointmentId, params) => {
-            return HttpClient(
+            const response = await HttpClient(
                 {
                     method: "DELETE",
                     host: hosts.engagementHost,
@@ -46,6 +64,17 @@ export default function (config: ClientTypes.MatadorClientConfig): AppointmentRe
                 }, 
                 config.apiKey
             );
+
+            let appointment: any = {
+            };
+
+            response.appointments.map((one: any) => {
+                if(one._id == appointmentId) appointment = AppointmentObject(one);
+            });
+
+            delete appointment.customerId;
+
+            return appointment;
         }
     };
     

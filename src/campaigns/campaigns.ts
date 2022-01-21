@@ -3,11 +3,12 @@ import * as ClientTypes from "../types/clientTypes";
 
 import HttpClient from "../http/client";
 import * as hosts from "../http/hosts";
+import CampaignObject from "../objects/Campaign";
 
 export default function (config: ClientTypes.MatadorClientConfig): CampaignResource {
     return {
         createCampaign: async (locationId, params) => {
-            return HttpClient(
+            const campaign = await HttpClient(
                 {
                     method: "POST",
                     host: hosts.engagementHost,
@@ -19,6 +20,7 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 }, 
                 config.apiKey
             );
+            return CampaignObject(campaign);
         },
 
         findDealersCampaign: async (locationId) => {
@@ -38,7 +40,7 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
 
         getCampaign: async (campaignId) => {
 
-            return HttpClient(
+            const campaign = await HttpClient(
                 {
                     method: "GET",
                     host: hosts.engagementHost,
@@ -48,10 +50,11 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 }, 
                 config.apiKey
             );
+            return CampaignObject(campaign);
         },
 
         changeCampaign: async (campaignId, params) => {
-            return HttpClient(
+            const campaign = await HttpClient(
                 {
                     method: "PATCH",
                     host: hosts.engagementHost,
@@ -60,10 +63,12 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                params,
                 config.apiKey
             );
+
+            return CampaignObject(campaign);
         },
 
         addCustomers: async(campaignId, users) => {
-            return HttpClient(
+            const response = await HttpClient(
                 {
                     method: "POST",
                     host: hosts.engagementHost,
@@ -75,10 +80,13 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 },
                 config.apiKey
             );
+            return {
+                message: response.message,
+            };
         },
 
         removeCustomers: async(campaignId, users) => {
-            return HttpClient(
+            const response = await HttpClient(
                 {
                     method: "POST",
                     host: hosts.engagementHost,
@@ -90,6 +98,9 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 },
                 config.apiKey
             );
+            return {
+                message: response.message
+            };
         },
 
     };
