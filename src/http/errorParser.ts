@@ -12,13 +12,17 @@ export default (err: any) =>  {
         };
     }
    
-    else return {
-        errorType: "HTTP",
-        error: {
+    else {
+        const response =  err.response.data;
+
+        delete response.code;
+        delete response.status;
+
+        return {
+            errorType: "HTTP",
             status: err.response.status,
-            statusText: err.response.statusText,
-            config: err.response.config,
-            data: err.response.data
-        }
-    };
+            response
+        };
+    }
+        
 };
