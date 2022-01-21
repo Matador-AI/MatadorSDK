@@ -5,6 +5,7 @@ export default function (automation: any) {
         name: automation.name,
         type: automation.type,
         message: automation.message,
+        frequency: automation.frequency,
         createdAt: automation.createdAt,
         updatedAt: automation.updatedAt,
         organizationId: automation.organization_id,

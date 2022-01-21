@@ -3,7 +3,7 @@
 
 # Matador.ai Node.js SDK
 
-## Version 0.2.1
+## Version 0.2.2
 
 # Introduction
 
