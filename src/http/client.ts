@@ -9,7 +9,7 @@ export default async (endpoint: HTTPEndpoint, body: object, apiKey: string) => {
         method: endpoint.method,
         headers: {"Authorization": "Bearer "+apiKey},
         data: body
-    }
+    };
 
     try {
         const response = await axios(config);
@@ -17,4 +17,4 @@ export default async (endpoint: HTTPEndpoint, body: object, apiKey: string) => {
     }catch(err: any) {
         throw errorParser(err);
     }
-}
+};

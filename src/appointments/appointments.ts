@@ -47,6 +47,6 @@ export default function (config: ClientTypes.MatadorClientConfig): AppointmentRe
                 config.apiKey
             );
         }
-    }
+    };
     
 }

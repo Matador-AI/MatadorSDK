@@ -1,3 +1,3 @@
 module.exports = {
-    modulePathIgnorePatterns: ["/dist", "/dev"]
+    modulePathIgnorePatterns: ["/dist"]
 }

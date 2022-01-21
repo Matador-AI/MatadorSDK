@@ -20,7 +20,7 @@ export default function (config: ClientTypes.MatadorClientConfig): AutomationRes
             );
         },
         
-        update: async (loactionId, automationId, params) => {
+        update: async (locationId, automationId, params) => {
             return HttpClient(
                 {
                     method: "PUT",
@@ -28,13 +28,13 @@ export default function (config: ClientTypes.MatadorClientConfig): AutomationRes
                     path: "/public/automations/update",
                 }, 
                 {
-                    location_id: loactionId, 
+                    location_id: locationId, 
                     automation_id: automationId, 
                     ...params
                 },
                 config.apiKey
             );
         }
-    }
+    };
     
 }
