@@ -1,0 +1,47 @@
+import Callout from 'nextra-theme-docs/callout'
+import Bleed from 'nextra-theme-docs/bleed'
+
+
+<Bleed full>
+  <img src="intro_back.png"/>
+</Bleed>
+
+### 👋 Hello ! Welcome to the Matador Node.js SDK documentation.
+
+## Introduction
+
+The Matador Node.js SDK gives you an easy and reliable way to interact with the Matador Public API’s. This documentation provides a description of all the resources available in this NPM package. 
+
+## Getting started
+
+### Installation
+
+The installation is as easy as any other package. Use the package manager of your choice.
+
+```bash
+yarn add matadorai
+```
+
+### API Key
+
+This package requires an API key, which is a JWT.
+
+### The Matador Client
+
+The package provides a core object which takes care of all the background API communication. The MatadorClient object will be more than enough to perform most operations. 
+
+On initialization, these arguments should to the constructor:
+
+1. `apiKey` required to perform all operations
+
+<Callout emoji='💡'>
+    More optional configuration params will be available in future releases
+</Callout>
+
+Here is an example:
+
+```jsx
+const {MatadorClient} = require("matadorai");
+
+const matador = new MatadorClient(YOUR_API_KEY);
+```
