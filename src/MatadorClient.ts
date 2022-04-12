@@ -2,6 +2,7 @@ import appointments from "./appointments/appointments";
 import automations from "./automations/automations";
 import campaigns from "./campaigns/campaigns";
 import customers from "./customers/customers";
+import leads from "./leads/leads";
 import * as ClientTypes from "./types/clientTypes";
 
 export default class MatadorClient {
@@ -18,5 +19,6 @@ export default class MatadorClient {
     public automations = automations(this.config);
     public campaigns = campaigns(this.config);
     public customers = customers(this.config);
+    public leads = leads(this.config);
 
 }
