@@ -1,3 +1,5 @@
+import {VehicleOfInterest} from "../customers/types";
+
 export default function (vehicle: AttachedVehicleOfInterest) {
     return {
         id: vehicle._id,
@@ -23,39 +25,9 @@ export default function (vehicle: AttachedVehicleOfInterest) {
     };
 }
 
-interface AttachedVehicleOfInterest {
-    source: string;
-    year: string;
-    make: string;
-    model: string;
-    trim: string;
-    series: string;
-    mileage: string;
-    stock: string;
-    status: string;
-    condition: string;
-    vin: string;
-    transmission: string;
-    type: string;
-    color: {
-        interiorcolor: string;
-        exteriorcolor: string;
-    };
-    finance: {
-        method: string;
-        amount: string;
-    };
-    price: {
-        value: string;
-        currency: string;
-        type: string;
-    };
-    title: string;
-    extraInfo: {
-        kbb_offer: string;
-        price_estimate: string;
-    };
+interface AttachedVehicleOfInterest extends VehicleOfInterest {
     _id: string;
     _customer_id: string;
     _organization_id: string;
+    title: string;
 }
