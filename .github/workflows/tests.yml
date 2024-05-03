@@ -14,6 +14,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        name: Install main modules
-      - run: npm i
-      - run: npm test
+        name: Checkout Code
+      - name: Install main modules
+        run: npm i
+      - name: Run tests
+        run: npm test
