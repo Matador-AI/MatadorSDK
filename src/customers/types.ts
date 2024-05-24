@@ -1,6 +1,7 @@
 export interface CustomersResource {
     createNote(text: string, customerPhone: string): Promise<any>;
     attachVehicle(customerId: string, vehicle: VehicleOfInterest): Promise<any>;
+    assignUserToConversation(userId: string, conversationId: string, isSuperhuman?: boolean): Promise<any>;
 }
 
 export interface VehicleOfInterest {
