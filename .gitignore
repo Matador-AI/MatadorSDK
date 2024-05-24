@@ -3,3 +3,4 @@ node_modules
 /dev
 yarn.lock
 yarn-error.log
+.idea
