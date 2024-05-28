@@ -1,4 +1,4 @@
-export interface AppointmentResource {
+export interface AIBotResource {
     turnOff(locationId: string, params: {
         customers: {
             phone: string, 
