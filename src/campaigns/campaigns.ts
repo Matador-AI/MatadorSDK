@@ -12,7 +12,7 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 {
                     method: "POST",
                     host: hosts.engagementHost,
-                    path: "/create-broadcast-campaign",
+                    path: "/campaigns",
                 }, 
                 {
                     _location_id: locationId,
