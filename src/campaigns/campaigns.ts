@@ -12,7 +12,7 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 {
                     method: "POST",
                     host: hosts.engagementHost,
-                    path: "/create-broadcast-campaign",
+                    path: "/campaigns",
                 }, 
                 {
                     _location_id: locationId,
@@ -29,7 +29,7 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 {
                     method: "GET",
                     host: hosts.engagementHost,
-                    path: "/findDealersCampaign",
+                    path: "/campaigns",
                 }, 
                 {
                     location_id: locationId
@@ -44,7 +44,7 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 {
                     method: "GET",
                     host: hosts.engagementHost,
-                    path: "/getCampaign/"+campaignId,
+                    path: "/campaigns/"+campaignId,
                 }, 
                 {
                 }, 
@@ -58,9 +58,9 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 {
                     method: "PATCH",
                     host: hosts.engagementHost,
-                    path: "/changeCampaign/"+campaignId,
+                    path: "/campaigns/"+campaignId,
                 },
-               params,
+                params,
                 config.apiKey
             );
 
@@ -72,7 +72,7 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 {
                     method: "POST",
                     host: hosts.engagementHost,
-                    path: "/addOrRemoveCustomers/"+campaignId,
+                    path: `/campaigns/${campaignId}/customers`,
                 },
                 {
                     action: "ADD",
@@ -90,7 +90,7 @@ export default function (config: ClientTypes.MatadorClientConfig): CampaignResou
                 {
                     method: "POST",
                     host: hosts.engagementHost,
-                    path: "/addOrRemoveCustomers/"+campaignId,
+                    path: `/campaigns/${campaignId}/customers`,
                 },
                 {
                     action: "REMOVE",
