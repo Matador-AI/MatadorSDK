@@ -1,4 +1,4 @@
-import {VehicleOfInterest} from "../customers/types";
+import {IVehicleOfInterest} from "../customers/types";
 
 export default function (vehicle: AttachedVehicleOfInterest) {
     return {
@@ -25,7 +25,7 @@ export default function (vehicle: AttachedVehicleOfInterest) {
     };
 }
 
-interface AttachedVehicleOfInterest extends VehicleOfInterest {
+interface AttachedVehicleOfInterest extends IVehicleOfInterest {
     _id: string;
     _customer_id: string;
     _organization_id: string;

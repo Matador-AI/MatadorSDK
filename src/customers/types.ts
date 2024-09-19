@@ -1,40 +1,40 @@
 export interface CustomersResource {
     createNote(text: string, customerPhone: string): Promise<any>;
-    attachVehicle(customerId: string, vehicle: VehicleOfInterest): Promise<any>;
+    attachVehicle(customerId: string, vehicle: IVehicleOfInterest): Promise<any>;
     assignUserToConversation(userId: string, conversationId: string, isSuperhuman?: boolean): Promise<any>;
 }
 
-export interface VehicleOfInterest {
-    source: string | null;
-    year: string | null;
-    make: string | null;
-    model: string | null;
-    trim: string | null;
-    series: string | null;
-    mileage: string | null;
-    stock: string | null;
-    status: string | null;
-    type: string | null;
-    condition: string | null;
-    vin: string | null;
-    transmission: string | null;
-    color: CarColor | null;
-    finance: CarFinance | null;
-    price: CarPrice | null;
+export interface IVehicleOfInterest {
+    source?: string;
+    year?: string;
+    make: string;
+    model?: string;
+    trim?: string;
+    series?: string;
+    mileage?: string;
+    stock?: string;
+    status?: string;
+    type?: string;
+    condition?: string;
+    vin?: string;
+    transmission?: string;
+    color?: ICarColor;
+    finance?: ICarFinance;
+    price?: ICarPrice;
 }
 
-interface CarColor {
-    interiorcolor: string | null;
-    exteriorcolor: string | null;
+interface ICarColor {
+    interiorcolor?: string;
+    exteriorcolor?: string;
 }
 
-interface CarFinance {
-    method: string | null;
-    amount: string | null;
+interface ICarFinance {
+    method?: string;
+    amount?: string;
 }
 
-interface CarPrice {
-    value: string | null;
-    currency: string | null;
-    type: string | null;
+interface ICarPrice {
+    value?: string;
+    currency?: string;
+    type?: string;
 }
