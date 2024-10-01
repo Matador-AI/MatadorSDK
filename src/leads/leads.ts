@@ -11,7 +11,7 @@ export default function (config: ClientTypes.MatadorClientConfig): LeadsResource
                 {
                     method: "POST",
                     host: hosts.engagementHost,
-                    path: "/create-new-lead/"+locationId,
+                    path: "/lead/"+locationId,
                 }, 
                 {
                     customers: [
