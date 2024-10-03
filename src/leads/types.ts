@@ -8,7 +8,7 @@ export interface LeadsResource {
         phone: string,
         source: string,
         initialMessage?: string,
-        vehicle?: IVehicleOfInterest,
+        vehicles?: IVehicleOfInterest[],
         usersToAssign?: string[]
     }): Promise<any>;
 }
