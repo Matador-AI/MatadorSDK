@@ -14,7 +14,7 @@ export default function (config: ClientTypes.MatadorClientConfig): CustomersReso
                 {
                     method: "POST",
                     host: hosts.engagementHost,
-                    path: "/create-note",
+                    path: "/create",
                 }, 
                 {
                     text, 
