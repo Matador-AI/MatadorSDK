@@ -2,10 +2,10 @@ import {IVehicleOfInterest} from "../customers/types";
 
 export interface LeadsResource {
     createNewLead(locationId: string, params: {
-        firstName: string,
-        lastName: string,
+        firstName?: string,
+        lastName?: string,
         email?: string,
-        phone: string,
+        phone?: string,
         source: string,
         comments?: string,
         initialMessage?: string,
