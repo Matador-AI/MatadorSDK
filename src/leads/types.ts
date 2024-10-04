@@ -7,8 +7,16 @@ export interface LeadsResource {
         email?: string,
         phone: string,
         source: string,
+        comments?: string,
         initialMessage?: string,
         vehicles?: IVehicleOfInterest[],
         usersToAssign?: string[]
+        crmInfo?: {
+            crmType?: string,
+            crmLeadId?: string,
+            crmLeadStatus?: string,
+            crmCustomerId?: string,
+            carSalesLeadId?: string
+        }
     }): Promise<any>;
 }
